@@ -1,150 +1,433 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabish Apps - Support</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #1d1d1f; line-height: 1.6; }
-        .nav { background: #2c2c2e; padding: 14px 20px; text-align: center; }
-        .nav a { color: white; text-decoration: none; font-size: 15px; font-weight: 500; margin: 0 16px; opacity: 0.85; }
-        .nav a:hover { opacity: 1; text-decoration: underline; }
-        .nav a.active { opacity: 1; border-bottom: 2px solid white; padding-bottom: 4px; }
-        .header { background: linear-gradient(135deg, #3F51B5, #7C4DFF); color: white; padding: 60px 20px 40px; text-align: center; }
-        .header h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
-        .header p { font-size: 18px; opacity: 0.9; }
-        .container { max-width: 680px; margin: 0 auto; padding: 20px; }
-        .card { background: white; border-radius: 16px; padding: 28px; margin: 20px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-        .card h2 { font-size: 22px; font-weight: 600; margin-bottom: 16px; color: #1d1d1f; }
-        .card p { color: #6e6e73; margin-bottom: 12px; }
-        .contact-btn { display: inline-block; background: #3F51B5; color: white; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 16px; margin-top: 8px; }
-        .contact-btn:hover { background: #303F9F; }
-        .faq-item { border-bottom: 1px solid #e5e5ea; padding: 16px 0; }
-        .faq-item:last-child { border-bottom: none; }
-        .faq-item h3 { font-size: 16px; font-weight: 600; color: #1d1d1f; margin-bottom: 6px; }
-        .faq-item p { color: #6e6e73; font-size: 15px; margin: 0; }
-        .app-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 16px; }
-        .app-tag { background: #f0f0f5; padding: 8px 14px; border-radius: 8px; font-size: 13px; color: #3F51B5; font-weight: 500; text-align: center; }
-        .footer { text-align: center; padding: 32px 20px; color: #86868b; font-size: 14px; }
-        .email-display { background: #f0f0f5; padding: 12px 20px; border-radius: 10px; font-size: 16px; color: #3F51B5; font-weight: 500; display: inline-block; margin-top: 8px; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabish Hassan — iOS Apps</title>
+<meta name="description" content="Beautiful, privacy-first iOS apps by Tabish Hassan. Productivity, wellness, education, finance, creativity.">
+<meta name="theme-color" content="#0D1117">
+<style>
+:root { color-scheme: dark light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "SF Pro Text", system-ui, sans-serif;
+  background: #0D1117;
+  color: #F0F6FC;
+  min-height: 100vh;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #FF8C42, #B98CFF);
+  color: white;
+  margin-bottom: 20px;
+}
+h1 {
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #F0F6FC, #8B949E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tagline {
+  font-size: 18px;
+  color: #8B949E;
+  max-width: 620px;
+  margin: 0 auto 24px;
+  line-height: 1.5;
+}
+.nav {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+.nav a {
+  color: #8B949E;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.nav a:hover {
+  color: #FF8C42;
+  background: #161B22;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin: 40px 0 56px;
+  padding: 32px;
+  background: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 20px;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FF8C42, #B98CFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8B949E;
+  margin-top: 8px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  background: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 12px;
+  color: #F0F6FC;
+  font-size: 15px;
+  margin-bottom: 24px;
+  font-family: inherit;
+}
+.search-box:focus {
+  outline: none;
+  border-color: #FF8C42;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.2s;
+  position: relative;
+}
+.card:hover {
+  border-color: #FF8C42;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255, 140, 66, 0.12);
+}
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FF8C42, #B98CFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #F0F6FC;
+}
+.card-tag {
+  font-size: 12px;
+  color: #8B949E;
+}
+
+footer {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid #30363D;
+  text-align: center;
+  color: #8B949E;
+  font-size: 14px;
+}
+footer a { color: #FF8C42; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 600px) {
+  .container { padding: 40px 16px 72px; }
+  .stats { gap: 24px; padding: 24px; }
+  .stat-num { font-size: 32px; }
+}
+</style>
 </head>
 <body>
-    <div class="nav">
-        <a href="index.html" class="active">Support</a>
-        <a href="privacy-policy">Privacy Policy</a>
-        <a href="terms%20of%20service">Terms of Service</a>
-    </div>
-    <div class="header">
-        <h1>Tabish Apps</h1>
-        <p>Support &amp; Help Center</p>
-    </div>
+<div class="container">
 
-    <div class="container">
+<header>
+  <span class="badge">Indie iOS Developer</span>
+  <h1>Tabish Hassan</h1>
+  <p class="tagline">Beautiful, privacy-first iOS apps. Productivity, wellness, education, finance, and creativity — all built with SwiftUI, SwiftData, and zero tracking.</p>
+  <nav class="nav">
+    <a href="#apps">Apps</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+    <a href="mailto:tabishhassan01998@gmail.com">Contact</a>
+  </nav>
+</header>
 
-        <!-- Contact Us -->
-        <div class="card">
-            <h2>Contact Us</h2>
-            <p>Have a question, found a bug, or need help with any of our apps? We're here to help. Send us an email and we'll respond within 24 hours.</p>
-            <a class="contact-btn" href="mailto:tabishhassan01998@gmail.com?subject=App%20Support%20Request">Email Support</a>
-            <br><br>
-            <div class="email-display">tabishhassan01998@gmail.com</div>
-        </div>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num" id="stat-apps">—</div>
+    <div class="stat-label">Apps shipping</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Privacy-first</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">$2.99</div>
+    <div class="stat-label">Monthly premium</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">7-day</div>
+    <div class="stat-label">Free trial</div>
+  </div>
+</div>
 
-        <!-- Report a Bug -->
-        <div class="card">
-            <h2>Report a Bug</h2>
-            <p>If something isn't working right, please include the following in your email so we can fix it quickly:</p>
-            <div class="faq-item">
-                <p>1. Which app are you using? (e.g., Math Tables, HabitGrid)</p>
-            </div>
-            <div class="faq-item">
-                <p>2. What device? (e.g., iPhone 15, iPad Air)</p>
-            </div>
-            <div class="faq-item">
-                <p>3. What iOS version? (Settings &gt; General &gt; About)</p>
-            </div>
-            <div class="faq-item">
-                <p>4. What happened? Describe the issue step by step.</p>
-            </div>
-            <a class="contact-btn" href="mailto:tabishhassan01998@gmail.com?subject=Bug%20Report&body=App%20Name%3A%20%0ADevice%3A%20%0AiOS%20Version%3A%20%0ADescription%3A%20">Report a Bug</a>
-        </div>
+<section id="apps">
+  <h2>All Apps</h2>
+  <input type="search" class="search-box" id="search" placeholder="Search apps…" autocomplete="off">
+  <div class="grid" id="grid"></div>
+</section>
 
-        <!-- FAQ -->
-        <div class="card">
-            <h2>Frequently Asked Questions</h2>
+<footer>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="support.html">Support</a>
+    <a href="mailto:tabishhassan01998@gmail.com">tabishhassan01998@gmail.com</a>
+  </div>
+  <p>© 2026 Tabish Hassan. Built with SwiftUI. Hosted on GitHub Pages.</p>
+</footer>
 
-            <div class="faq-item">
-                <h3>How do I restore my purchase?</h3>
-                <p>Open the app &gt; Settings &gt; Restore Purchases. If you previously purchased Premium on another device or reinstalled the app, your purchase will be restored automatically.</p>
-            </div>
+</div>
 
-            <div class="faq-item">
-                <h3>I paid but Premium isn't showing. What do I do?</h3>
-                <p>Try these steps: 1) Close and reopen the app. 2) Go to Settings &gt; Restore Purchases. 3) Make sure you're signed in with the same Apple ID you used to purchase. If it still doesn't work, email us.</p>
-            </div>
+<script>
+const APPS = [
+  {n:"MathTables",t:"Education",s:"mathtables"},
+  {n:"HabitGrid",t:"Productivity",s:"habitgrid"},
+  {n:"StoryBoard",t:"Creative",s:"storyboard"},
+  {n:"SpellBee",t:"Kids",s:"spellbee"},
+  {n:"FocusForge",t:"Productivity",s:"focusforge"},
+  {n:"MoodTrack",t:"Wellness",s:"moodtrack"},
+  {n:"FlashGenius",t:"Education",s:"flashgenius"},
+  {n:"BabyLog",t:"Family",s:"babylog"},
+  {n:"ReadingLog",t:"Books",s:"readinglog"},
+  {n:"BudgetBee",t:"Finance",s:"budgetbee"},
+  {n:"QuoteVault",t:"Self-Improvement",s:"quotevault"},
+  {n:"DeepBlock",t:"Productivity",s:"deepblock"},
+  {n:"ChunkIt",t:"Productivity",s:"chunkit"},
+  {n:"InboxZero",t:"Productivity",s:"inboxzero"},
+  {n:"PriorityStack",t:"Productivity",s:"prioritystack"},
+  {n:"ClipVault",t:"Utilities",s:"clipvault"},
+  {n:"LaterList",t:"Productivity",s:"laterlist"},
+  {n:"TimeAudit",t:"Productivity",s:"timeaudit"},
+  {n:"MeetingCost",t:"Productivity",s:"meetingcost"},
+  {n:"MeetingNotes",t:"Productivity",s:"meetingnotes"},
+  {n:"BillPulse",t:"Finance",s:"billpulse"},
+  {n:"SplitTab",t:"Finance",s:"splittab"},
+  {n:"NetWorthNow",t:"Finance",s:"networthnow"},
+  {n:"CashEnvelope",t:"Finance",s:"cashenvelope"},
+  {n:"TaxJar",t:"Finance",s:"taxjar"},
+  {n:"TipCalcPro",t:"Finance",s:"tipcalcpro"},
+  {n:"GroceryBudget",t:"Finance",s:"grocerybudget"},
+  {n:"LoanLens",t:"Finance",s:"loanlens"},
+  {n:"InvoiceSnap",t:"Finance",s:"invoicesnap"},
+  {n:"CurrencyDiary",t:"Finance",s:"currencydiary"},
+  {n:"PostureTimer",t:"Health",s:"posturetimer"},
+  {n:"HydroLog",t:"Health",s:"hydrolog"},
+  {n:"CycleNote",t:"Health",s:"cyclenote"},
+  {n:"NapCraft",t:"Health",s:"napcraft"},
+  {n:"VisionBreak",t:"Health",s:"visionbreak"},
+  {n:"MedCabinet",t:"Health",s:"medcabinet"},
+  {n:"BreathSpace",t:"Health",s:"breathspace"},
+  {n:"SunTracker",t:"Health",s:"suntracker"},
+  {n:"PainMap",t:"Health",s:"painmap"},
+  {n:"SymptomSnap",t:"Health",s:"symptomsnap"},
+  {n:"LexiMind",t:"Education",s:"leximind"},
+  {n:"TypeMaster",t:"Education",s:"typemaster"},
+  {n:"ReadWiseLite",t:"Education",s:"readwiselite"},
+  {n:"FactStack",t:"Education",s:"factstack"},
+  {n:"SkillPath",t:"Education",s:"skillpath"},
+  {n:"PhrasePocket",t:"Education",s:"phrasepocket"},
+  {n:"ConceptMap",t:"Education",s:"conceptmap"},
+  {n:"QuizBuilder",t:"Education",s:"quizbuilder"},
+  {n:"MapQuiz",t:"Education",s:"mapquiz"},
+  {n:"CodeSnippets",t:"Developer",s:"codesnippets"},
+  {n:"CookTimer",t:"Food",s:"cooktimer"},
+  {n:"IntermitFast",t:"Food",s:"intermitfast"},
+  {n:"RecipeBox",t:"Food",s:"recipebox"},
+  {n:"CaffeineLog",t:"Food",s:"caffeinelog"},
+  {n:"AllergyCard",t:"Food",s:"allergycard"},
+  {n:"MealPrep",t:"Food",s:"mealprep"},
+  {n:"CalorieEstimate",t:"Food",s:"calorieestimate"},
+  {n:"MacroSnap",t:"Food",s:"macrosnap"},
+  {n:"PantryPulse",t:"Food",s:"pantrypulse"},
+  {n:"WineNotes",t:"Food",s:"winenotes"},
+  {n:"ChoreChart",t:"Family",s:"chorechart"},
+  {n:"GrowthVault",t:"Family",s:"growthvault"},
+  {n:"FamilyDinner",t:"Family",s:"familydinner"},
+  {n:"ScreenTimeLog",t:"Family",s:"screentimelog"},
+  {n:"BedtimeBox",t:"Family",s:"bedtimebox"},
+  {n:"StoryNight",t:"Family",s:"storynight"},
+  {n:"KidTimer",t:"Family",s:"kidtimer"},
+  {n:"PocketMoney",t:"Family",s:"pocketmoney"},
+  {n:"FamilyTrip",t:"Family",s:"familytrip"},
+  {n:"VaccinationLog",t:"Family",s:"vaccinationlog"},
+  {n:"HabitStack",t:"Self-Improvement",s:"habitstack"},
+  {n:"GratitudeVault",t:"Self-Improvement",s:"gratitudevault"},
+  {n:"WinLog",t:"Self-Improvement",s:"winlog"},
+  {n:"BookOf1",t:"Self-Improvement",s:"bookof1"},
+  {n:"FearFace",t:"Self-Improvement",s:"fearface"},
+  {n:"WeeklyReview",t:"Self-Improvement",s:"weeklyreview"},
+  {n:"IntentionSetter",t:"Self-Improvement",s:"intentionsetter"},
+  {n:"AffirmDeck",t:"Self-Improvement",s:"affirmdeck"},
+  {n:"DigitalDetox",t:"Wellness",s:"digitaldetox"},
+  {n:"RoutineForge",t:"Productivity",s:"routineforge"},
+  {n:"JetLagFixer",t:"Travel",s:"jetlagfixer"},
+  {n:"CarMinder",t:"Utilities",s:"carminder"},
+  {n:"LocalList",t:"Travel",s:"locallist"},
+  {n:"PetLog",t:"Pets",s:"petlog"},
+  {n:"PlantParent",t:"Lifestyle",s:"plantparent"},
+  {n:"WeatherWear",t:"Utilities",s:"weatherwear"},
+  {n:"NeighborhoodWatch",t:"Utilities",s:"neighborhoodwatch"},
+  {n:"PackSmart",t:"Travel",s:"packsmart"},
+  {n:"RoadTripPlanner",t:"Travel",s:"roadtripplanner"},
+  {n:"TripLog",t:"Travel",s:"triplog"},
+  {n:"FontSwatch",t:"Creative",s:"fontswatch"},
+  {n:"LogoSketch",t:"Creative",s:"logosketch"},
+  {n:"WritingPrompts",t:"Creative",s:"writingprompts"},
+  {n:"SoundBoardPro",t:"Creative",s:"soundboardpro"},
+  {n:"ThumbnailKit",t:"Creative",s:"thumbnailkit"},
+  {n:"PatternVault",t:"Creative",s:"patternvault"},
+  {n:"ColorPalette",t:"Creative",s:"colorpalette"},
+  {n:"MoodBoard",t:"Creative",s:"moodboard"},
+  {n:"ChordNotes",t:"Music",s:"chordnotes"},
+  {n:"ScriptTime",t:"Creative",s:"scripttime"},
+  {n:"RentLog",t:"Finance",s:"rentlog"},
+  {n:"InterviewPrep",t:"Career",s:"interviewprep"},
+  {n:"SecondBrainLite",t:"Productivity",s:"secondbrainlite"},
+  {n:"PasswordNarrative",t:"Utilities",s:"passwordnarrative"},
+  {n:"ArgumentLog",t:"Self-Improvement",s:"argumentlog"},
+  {n:"NoBuy",t:"Finance",s:"nobuy"},
+  {n:"ObituaryWriter",t:"Creative",s:"obituarywriter"},
+  {n:"WaitList",t:"Productivity",s:"waitlist"},
+  {n:"SunsetFinder",t:"Travel",s:"sunsetfinder"},
+  {n:"DecisionDie",t:"Utilities",s:"decisiondie"},
+  {n:"StepQuest",t:"Health",s:"stepquest"},
+  {n:"YogaFlow",t:"Wellness",s:"yogaflow"},
+  {n:"WaterFast",t:"Health",s:"waterfast"},
+  {n:"StretchBreak",t:"Health",s:"stretchbreak"},
+  {n:"SleepScore",t:"Health",s:"sleepscore"},
+  {n:"HeartBeat",t:"Health",s:"heartbeat"},
+  {n:"CalorieCam",t:"Food",s:"caloriecam"},
+  {n:"MindfulMin",t:"Wellness",s:"mindfulmin"},
+  {n:"WorkoutLog",t:"Health",s:"workoutlog"},
+  {n:"RunRoute",t:"Health",s:"runroute"},
+  {n:"MindDump",t:"Productivity",s:"minddump"},
+  {n:"ProjectPulse",t:"Productivity",s:"projectpulse"},
+  {n:"PennyDrop",t:"Finance",s:"pennydrop"},
+  {n:"SubTrack",t:"Finance",s:"subtrack"},
+  {n:"DebtFree",t:"Finance",s:"debtfree"},
+  {n:"SavingsJar",t:"Finance",s:"savingsjar"},
+  {n:"SideHustle",t:"Finance",s:"sidehustle"},
+  {n:"RetireCalc",t:"Finance",s:"retirecalc"},
+  {n:"VocabVault",t:"Education",s:"vocabvault"},
+  {n:"MathDash",t:"Education",s:"mathdash"},
+  {n:"ScienceQuiz",t:"Education",s:"sciencequiz"},
+  {n:"HistoryToday",t:"Education",s:"historytoday"},
+  {n:"CodeCards",t:"Education",s:"codecards"},
+  {n:"LanguageLog",t:"Education",s:"languagelog"},
+  {n:"GrammarFix",t:"Education",s:"grammarfix"},
+  {n:"SpeedRead",t:"Education",s:"speedread"},
+  {n:"LunchBox",t:"Food",s:"lunchbox"},
+  {n:"AllowanceTracker",t:"Family",s:"allowancetracker"},
+  {n:"FamilyRecipe",t:"Food",s:"familyrecipe"},
+  {n:"SchoolBag",t:"Family",s:"schoolbag"},
+  {n:"MealSpin",t:"Food",s:"mealspin"},
+  {n:"BakingTimer",t:"Food",s:"bakingtimer"},
+  {n:"CocktailMix",t:"Food",s:"cocktailmix"},
+  {n:"PackList",t:"Travel",s:"packlist"},
+  {n:"CityGuide",t:"Travel",s:"cityguide"},
+  {n:"FlightLog",t:"Travel",s:"flightlog"},
+  {n:"TravelBudget",t:"Travel",s:"travelbudget"},
+  {n:"VisaCheck",t:"Travel",s:"visacheck"},
+  {n:"SketchPad",t:"Creative",s:"sketchpad"},
+  {n:"PixelArt",t:"Creative",s:"pixelart"},
+  {n:"PoemCraft",t:"Creative",s:"poemcraft"},
+  {n:"DreamLog",t:"Wellness",s:"dreamlog"},
+  {n:"MorningPages",t:"Self-Improvement",s:"morningpages"},
+  {n:"LifeScore",t:"Self-Improvement",s:"lifescore"}
+];
 
-            <div class="faq-item">
-                <h3>Is the purchase a subscription?</h3>
-                <p>No. All our apps use a one-time lifetime purchase of $2.99. You pay once and keep all premium features forever. There are no recurring charges.</p>
-            </div>
+function initials(name) {
+  const letters = name.replace(/[^A-Z]/g, '');
+  return letters.length >= 2 ? letters.substring(0, 2) : name.substring(0, 2).toUpperCase();
+}
 
-            <div class="faq-item">
-                <h3>How do I turn off notifications?</h3>
-                <p>Open the app &gt; Settings &gt; toggle off Daily Reminder. You can also go to your device Settings &gt; Notifications &gt; find the app &gt; toggle off.</p>
-            </div>
+function render(filter = '') {
+  const grid = document.getElementById('grid');
+  const q = filter.trim().toLowerCase();
+  const filtered = q
+    ? APPS.filter(a => a.n.toLowerCase().includes(q) || a.t.toLowerCase().includes(q))
+    : APPS;
+  grid.innerHTML = filtered.map(a => `
+    <article class="card" id="${a.s}">
+      <div class="card-icon">${initials(a.n)}</div>
+      <div class="card-title">${a.n}</div>
+      <div class="card-tag">${a.t}</div>
+    </article>
+  `).join('');
+  document.getElementById('stat-apps').textContent = APPS.length;
+}
 
-            <div class="faq-item">
-                <h3>Is my data safe?</h3>
-                <p>Yes. All data is stored locally on your device only. We do not collect, transmit, or store any personal data on external servers. Deleting the app will delete all data.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How do I request a refund?</h3>
-                <p>Refunds are handled by Apple. Visit <strong>reportaproblem.apple.com</strong>, sign in with your Apple ID, find the purchase, and request a refund.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Do you support iPad?</h3>
-                <p>Yes. All our apps work on both iPhone and iPad running iOS 17 or later.</p>
-            </div>
-        </div>
-
-        <!-- Privacy -->
-        <div class="card">
-            <h2>Privacy</h2>
-            <p>We take your privacy seriously. Our apps:</p>
-            <div class="faq-item"><p>Do not collect personal information</p></div>
-            <div class="faq-item"><p>Do not use third-party analytics or tracking</p></div>
-            <div class="faq-item"><p>Do not share data with advertisers</p></div>
-            <div class="faq-item"><p>Store all data locally on your device only</p></div>
-            <p style="margin-top: 12px;">For full details, see the Privacy Policy within each app under Settings.</p>
-        </div>
-
-        <!-- Our Apps -->
-        <!-- <div class="card">
-            <h2>Our Apps</h2>
-            <p>We build simple, useful iOS apps — each one focused on doing one thing really well.</p>
-            <div class="app-list">
-                <div class="app-tag">Math Tables</div>
-                <div class="app-tag">HabitGrid</div>
-                <div class="app-tag">SpellBee</div>
-                <div class="app-tag">FocusForge</div>
-                <div class="app-tag">MoodTrack</div>
-                <div class="app-tag">BudgetBee</div>
-                <div class="app-tag">ReadingLog</div>
-                <div class="app-tag">BabyLog</div>
-                <div class="app-tag">QuoteVault</div>
-                <div class="app-tag">FlashGenius</div>
-                <div class="app-tag">And 100 more...</div>
-            </div>
-        </div> -->
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2026 Tabish. All rights reserved.</p>
-        <p style="margin-top: 4px;">tabishhassan01998@gmail.com</p>
-    </div>
+document.getElementById('search').addEventListener('input', e => render(e.target.value));
+render();
+</script>
 </body>
 </html>
